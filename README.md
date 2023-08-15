@@ -47,10 +47,10 @@ docker run --rm -it -v $(pwd):/root/pwn --name ubuntu_16 pwn-docker:16.04 /bin/z
 Change the somewhere variable value to the path you want
 ```sh
 export somewhere="/path/to/somewhere"
-alias pwn16="docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it -v $somewhere:/pwn --name ubuntu_16 pwn-docker:16.04 /bin/zsh"
-alias pwn18="docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it -v $somewhere:/pwn --name ubuntu_18 pwn-docker:18.04 /bin/zsh"
-alias pwn20="docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it -v $somewhere:/pwn --name ubuntu_20 pwn-docker:20.04 /bin/zsh"
-alias pwn22="docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it -v $somewhere:/pwn --name ubuntu_22 pwn-docker:22.04 /bin/zsh"
+alias pwn16="docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it -v $somewhere:/root/pwn --name ubuntu_16 pwn-docker:16.04 /bin/zsh"
+alias pwn18="docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it -v $somewhere:/root/pwn --name ubuntu_18 pwn-docker:18.04 /bin/zsh"
+alias pwn20="docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it -v $somewhere:/root/pwn --name ubuntu_20 pwn-docker:20.04 /bin/zsh"
+alias pwn22="docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it -v $somewhere:/root/pwn --name ubuntu_22 pwn-docker:22.04 /bin/zsh"
 ```
 
 ## Reference
