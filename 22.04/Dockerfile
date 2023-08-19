@@ -18,6 +18,16 @@ RUN git clone https://github.com/is07king/gdb-peda-pwndbg-gef.git
 WORKDIR /root/.docker_set/gdb-peda-pwndbg-gef
 RUN ./install.sh
 
+# Install patchelf
+WORKDIR /root/.docker_set
+RUN git clone https://github.com/NixOS/patchelf.git
+WORKDIR /root/.docker_set/patchelf
+RUN ./bootstrap.sh
+RUN ./configure
+RUN make
+RUN make check
+RUN make install
+
 # Finish Setting
 WORKDIR /root/.docker_set
 RUN git clone https://github.com/is07king/pwn_docker_setting.git
