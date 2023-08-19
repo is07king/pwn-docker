@@ -16,6 +16,9 @@ Latest pwn-docker with high compatibility
   - gdb-gef
 - zsh(powerlevel10k theme, required [font](https://github.com/romkatv/powerlevel10k#fonts))
 - nvim
+- pwntools
+- z3-solver
+- patchelf
 
 ## How to use
 ### docker build image command
@@ -53,7 +56,13 @@ alias pwn20="docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -
 alias pwn22="docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it -v $somewhere:/root/pwn --name ubuntu_22 pwn-docker:22.04 /bin/zsh"
 ```
 
+### patchelf set loader
+```sh
+patchelf --set-interpreter /lib/ld-linux.so.2 ./your_program
+```
+
 ## Reference
 [pwn_docker_settings](https://github.com/h1ghl1kh7/tools)<br>
 [gdb-peda-pwndbg-gef](https://github.com/apogiatzis/gdb-peda-pwndbg-gef)<br>
 [pwn-docker](https://github.com/Kangwoosun/pwn-docker)
+[patchelf](https://github.com/NixOS/patchelf)
