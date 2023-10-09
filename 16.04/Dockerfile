@@ -12,7 +12,7 @@ RUN apt install software-properties-common -y
 RUN apt-add-repository ppa:brightbox/ruby-ng
 RUN apt update -y
 RUN apt install glibc-source
-RUN apt install file sudo python python-dev python-setuptools python3 python3-pip python3-dev python3-setuptools python-capstone libssl-dev libffi-dev build-essential libc6:i386 libc6-dbg gcc-multilib make gcc netcat git curl wget gdb vim nano zsh ruby2.4 ruby2.4-dev tmux fonts-powerline zlib1g-dev libncurses5-dev -y
+RUN apt install file sudo python python-dev python-setuptools python3 python3-pip python3-dev python3-setuptools python-capstone libssl-dev libffi-dev build-essential libc6:i386 libc6-dbg gcc-multilib make gcc netcat git curl wget gdb vim nano zsh ruby2.4 ruby2.4-dev tmux fonts-powerline tmux zlib1g-dev libncurses5-dev -y
 RUN wget https://bootstrap.pypa.io/pip/2.7/get-pip.py && python get-pip.py && rm -rf get-pip.py
 RUN wget https://bootstrap.pypa.io/pip/3.5/get-pip.py && python3 get-pip.py && rm -rf get-pip.py
 RUN python -m pip install --upgrade pip
