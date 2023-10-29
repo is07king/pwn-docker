@@ -18,7 +18,8 @@ RUN wget https://bootstrap.pypa.io/pip/3.5/get-pip.py && python3 get-pip.py && r
 RUN python -m pip install --upgrade pip
 RUN python3 -m pip install --upgrade pip
 RUN python -m pip install --ignore-installed pwntools && python3 -m pip install --ignore-installed pwntools && python3 -m pip install keystone-engine ropper && python -m pip install pathlib2
-RUN gem install one_gadget seccomp-tools
+RUN gem install one_gadget
+RUN gem install seccomp-tools -v 1.5.0
 
 # Install old version gef (avoid to error)
 WORKDIR /root
