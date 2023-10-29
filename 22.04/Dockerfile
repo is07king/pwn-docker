@@ -34,6 +34,9 @@ RUN git clone https://github.com/is07king/pwn_docker_setting.git
 WORKDIR /root/.docker_set/pwn_docker_setting/ubuntu
 RUN ./zsh-plugin.sh
 
+#default dbg
+RUN bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
+
 # Clean junk
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
