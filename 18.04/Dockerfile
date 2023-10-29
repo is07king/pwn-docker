@@ -12,7 +12,8 @@ RUN apt install file sudo python python-dev python-setuptools python3 python3-pi
 RUN wget https://bootstrap.pypa.io/pip/2.7/get-pip.py && python get-pip.py && rm -rf get-pip.py
 RUN python -m pip install --upgrade pip && python3 -m pip install --upgrade pip
 RUN python -m pip install --ignore-installed pwntools && python3 -m pip install --ignore-installed pwntools && python3 -m pip install keystone-engine ropper && python -m pip install pathlib2
-RUN gem install one_gadget seccomp-tools
+RUN gem install one_gadget
+RUN gem install seccomp-tools -v 1.5.0
 
 # Install old version gef (avoid to error)
 WORKDIR /root
