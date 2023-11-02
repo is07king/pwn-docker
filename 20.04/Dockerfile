@@ -35,9 +35,12 @@ WORKDIR /root/.docker_set
 RUN git clone https://github.com/is07king/pwn_docker_setting.git
 WORKDIR /root/.docker_set/pwn_docker_setting/ubuntu
 RUN ./zsh-plugin.sh
-
-#default dbg
-RUN bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
+RUN rm -rf /root/.gdbinit
+RUN cp /root/.docker_set/pwn_docker_setting/ubuntu/.gdbinit /root/.gdbinit
+RUN mv /root/gef /root/.docker_set/pwn_docker_setting/tools/
+RUN mv /root/peda /root/.docker_set/pwn_docker_setting/tools/
+RUN mv /root/peda-arm /root/.docker_set/pwn_docker_setting/tools/
+RUN mv /root/pwndbg /root/.docker_set/pwn_docker_setting/tools/
 
 # Clean junk
 RUN apt-get clean && \
