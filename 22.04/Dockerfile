@@ -12,11 +12,11 @@ RUN apt install file sudo python3 python3-pip python3-dev python3-setuptools lib
 RUN python3 -m pip install --upgrade pip && python3 -m pip install pwntools && python3 -m pip install z3-solver
 RUN gem install one_gadget seccomp-tools
 
-# Install gdb-peda-pwndbg-gef
+# Setting
 WORKDIR /root/.docker_set
-RUN git clone https://github.com/is07king/gdb-peda-pwndbg-gef.git
-WORKDIR /root/.docker_set/gdb-peda-pwndbg-gef
-RUN ./install.sh
+RUN git clone https://github.com/is07king/pwn_docker_setting.git
+WORKDIR /root/.docker_set/pwn_docker_setting/ubuntu
+RUN ./zsh-plugin.sh
 
 # Install patchelf
 WORKDIR /root/.docker_set
@@ -28,17 +28,15 @@ RUN make
 RUN make check
 RUN make install
 
-# Finish Setting
+# Install gdb-peda-pwndbg-gef
 WORKDIR /root/.docker_set
-RUN git clone https://github.com/is07king/pwn_docker_setting.git
-WORKDIR /root/.docker_set/pwn_docker_setting/ubuntu
-RUN ./zsh-plugin.sh
+RUN git clone https://github.com/is07king/gdb-peda-pwndbg-gef.git
+WORKDIR /root/.docker_set/gdb-peda-pwndbg-gef
+RUN ./install.sh
+
+# edit .gdbinit
 RUN rm -rf /root/.gdbinit
 RUN cp /root/.docker_set/pwn_docker_setting/ubuntu/.gdbinit /root/.gdbinit
-RUN mv /root/gef /root/.docker_set/pwn_docker_setting/tools/
-RUN mv /root/peda /root/.docker_set/pwn_docker_setting/tools/
-RUN mv /root/peda-arm /root/.docker_set/pwn_docker_setting/tools/
-RUN mv /root/pwndbg /root/.docker_set/pwn_docker_setting/tools/
 
 # Clean junk
 RUN apt-get clean && \
